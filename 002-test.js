@@ -37,10 +37,18 @@ var 你好, 中国;
 console.log(你好);
 console.log(中国);
 
+var k = 1;
+
+k = 'hello';
+
+
+console.log(k);
 
 
 
+var x = 2;
+var x;
 
-
+console.log(x);
 
 
