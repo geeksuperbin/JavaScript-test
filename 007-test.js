@@ -13,9 +13,35 @@ var d = undefined;
 
 var e  = null;
 
+var f = function(){};
+
+function g(){
+
+}
 
 console.log(typeof  a);
 console.log(typeof  b);
 console.log(typeof  c);
 console.log(typeof  d);
 console.log(typeof  e);
+console.log(typeof  f);
+console.log(typeof  g);
+
+console.log(typeof hhh);
+
+
+if(typeof hhh === "undefined"){
+    console.log('哈哈');
+}
+
+console.log(typeof {});
+console.log(typeof []);
+console.log(typeof Window);
+
+
+var o = {};
+var a = [];
+
+
+console.log(o instanceof Array);
+console.log(a instanceof Array);
