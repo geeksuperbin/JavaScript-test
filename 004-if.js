@@ -92,7 +92,6 @@ n = 10;
 
 var even = (n % 2 === 0) ? true : false;
 
-
 var even;
 if(n % 2 === 0){
     even = true;
