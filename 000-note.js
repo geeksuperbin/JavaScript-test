@@ -441,6 +441,73 @@ f(1,2,3,4);
 
 
 
+/*
+闭包（closure）是 JavaScript 语言的一个难点，
+也是它的特色，很多高级应用都要依靠闭包实现。
+
+
+正常情况下，函数外部无法读取函数内部声明的变量
+如果出于种种原因，需要得到函数内的局部变量。
+正常情况下，这是办不到的，只有通过变通方法才能实现。
+那就是在函数的内部，再定义一个函数。
+
+*/
+
+function f1() {
+    var n = 999;
+    function f2() {
+        console.log(n); // 999
+    }
+  }
+
+  /*
+
+    既然f2可以读取f1的局部变量，那么只要把f2作为返回值，
+    我们不就可以在f1外部读取它的内部变量了吗！
+
+  */
+
+function f1() {
+    var n = 999;
+    function f2() { // 闭包，目的是获取 n 值
+      console.log(n);
+    }
+    return f2;
+  }
+  
+  var result = f1();
+  result(); // 999
+
+
+  /*
+  闭包累加
+  */
+
+  function createIncrementor(start){
+    return function(){
+        return start++;
+    };
+}
+
+
+var inc = createIncrementor(5);
+console.log(inc()); // 5
+console.log(inc()); // 6
+console.log(inc()); // 7
+
+
+
+/*
+立即调用函数表达式 IIFE
+*/
+
+(function(){ console.log("123") })();  //123
+
+
+
+
+
+
 
 
 
@@ -503,6 +570,13 @@ console.log(btoa(encodeURIComponent("你好")));
 console.log(atob("SGVsbG8gV29ybGQ="));
 // 非 ASCII 码字符转换，需要进行解码
 console.log(decodeURIComponent(atob("JUU0JUJEJUEwJUU1JUE1JUJE")));
+
+
+
+// eval 命令接收一个字符串作为参数，并将这个字符串当作语句执行。
+eval('var a = 1;');
+console.log(a); // 1
+
 
 
 

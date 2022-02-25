@@ -10,3 +10,27 @@
 
 */
 
+function f1() {
+    var n = 999;
+    function f2() {
+        console.log(n); // 999
+    }
+  }
+
+  /*
+
+    既然f2可以读取f1的局部变量，那么只要把f2作为返回值，
+    我们不就可以在f1外部读取它的内部变量了吗！
+
+  */
+
+function f1() {
+    var n = 999;
+    function f2() { // 闭包，目的是获取 n 值
+      console.log(n);
+    }
+    return f2;
+  }
+  
+  var result = f1();
+  result(); // 999
