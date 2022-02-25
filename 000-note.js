@@ -345,6 +345,107 @@ with(obj){
 
 
 
+/*
+ 三种声明 JavaScript 函数的方式
+
+ JavaScript 语言将函数看作一种值，
+ 与其它值（数值、字符串、布尔值等等）地位相同。
+ 凡是可以使用值的地方，就能使用函数。
+ 比如，可以把函数赋值给变量和对象的属性，也可以当作参数传入其他函数，
+ 或者作为函数的结果返回。函数只是一个可以执行的值，此外并无特殊之处。
+
+*/
+
+// 1、function 命令-函数的申明
+function print1(s){
+    console.log(s);
+}
+
+// 2、匿名函数-函数表达式-变量赋值
+var print2 = function(s){
+    console.log(s);
+};
+
+// 3、构造函数,最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体
+var add = new Function(
+    'x',
+    'y',
+    'z',
+    'return x + y + z'
+);
+console.log(add(1,2,3));
+
+
+var foo = new Function(
+    'console.log("222");'
+);
+foo();
+
+
+
+function f1(a,b){}
+// 函数的 name 属性返回函数的名字
+console.log(f1.name);
+// 函数的length属性返回函数预期传入的参数个数
+console.log(f1.length);
+// 函数的toString()方法返回一个字符串，内容是函数的源码
+console.log(f1.toString());
+
+
+
+/*
+作用域（scope）指的是变量存在的范围
+在 ES5 规范中，JS 只有两种作用域：全局作用域、函数作用域
+ES6 中增加了块级作用域
+
+全局作用域：变量在整个程序中一直存在，所有地方都可以读取；
+函数作用域：变量只在函数内部存在。
+
+*/
+
+// 1、对于顶层函数来说，函数外部声明的变量就是全局变量 global variable，它可以在函数内部读取。
+var v = 1;
+function f(){
+    console.log(v);
+}
+f(); // 1
+
+// 2、在函数内部定义的变量，外部无法读取，称为局部变量 local variable
+function f1(){
+    var g = 1;
+}
+// console.log(g); // g is not defined
+
+
+
+
+
+/*
+    arguments 读取函数中不定数目的参数
+
+    1
+    2
+    3
+    4
+*/
+
+
+var f = function(...args){ // 获取形参中的多参数
+    for(var i = 0; i < args.length; i++){
+        console.log(arguments[i]);
+    }
+}
+
+f(1,2,3,4);
+
+
+
+
+
+
+
+
+
 
 
 
