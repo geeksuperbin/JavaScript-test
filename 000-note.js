@@ -329,6 +329,9 @@ for(var i in obj1){
     console.log('键值：' , obj1[i]);
 }
 
+
+
+
 /*
 with 操作同一个对象的多个属性时，提供一些书写的方便/
 */

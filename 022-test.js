@@ -19,4 +19,22 @@ var arr2 = [
 console.log(arr2); // [{…}, Array(3), ƒ]
 console.log(Object.keys(arr2)); // ['0', '1', '2']
 
+// 清空数组的最有效的方式是将 length 设置为0
+arr.length = 0;
+console.log(arr); // []
+
+// 数组 in
+var arr3 = ['1','2','3'];
+console.log('1' in arr3); // true
+
+/* 
+  遍历数组
+  1
+  2
+  3
+  */
+for(i in arr3){
+    console.log(arr3[i]);
+}
+
 
