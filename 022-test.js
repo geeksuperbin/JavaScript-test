@@ -16,4 +16,7 @@ var arr2 = [
     [1,2,3],
     function(){return true;}
 ];
-console.log(arr2);
+console.log(arr2); // [{…}, Array(3), ƒ]
+console.log(Object.keys(arr2)); // ['0', '1', '2']
+
+
