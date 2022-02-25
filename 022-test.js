@@ -36,5 +36,5 @@ console.log('1' in arr3); // true
 for(i in arr3){
     console.log(arr3[i]);
 }
-
+https://wangdoc.com/javascript/types/array.html
 
