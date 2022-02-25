@@ -157,7 +157,13 @@ foo:{
 console.log(2);
 
 
+/*
+强制类型转换
 
+*/
+
+Number('123');
+Boolean('123');
 
 
 
@@ -245,18 +251,90 @@ greeMe("函数调用");
 
 
 
-
-
-
+/*
+判断是否是NaN
+利用NaN为唯一不等于自身的值的这个特点，进行判断。
+*/
+function myIsNaN(value) {
+  return value !== value;
+}
 
 
 
 
 /*
- 与数值相关的全局方法
+非 ASCII 码 Base64编码
 */
+function b64Encode(str) {
+    return btoa(encodeURIComponent(str));
+  }
+/*
+非 ASCII 码 Base64解码
+*/
+  function b64Decode(str) {
+    return decodeURIComponent(atob(str));
+  }
+  
+  console.log(b64Encode('你好 Hell哦World'));  // JUU0JUJEJUEwJUU1JUE1JUJEJTIwSGVsbCVFNSU5MyVBNldvcmxk
+  console.log(b64Decode('JUU0JUJEJUEwJUU1JUE1JUJEJTIwSGVsbCVFNSU5MyVBNldvcmxk'));  // 你好 Hell哦World
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
 
 // parseInt 方法，用于将字符串转为整数 
 console.log(parseInt('123'));
+
+
 // 字符串转换头部有空格，空格会自动被去除
 console.log(parseInt('     81'));
+
+
+// 字符串转为整数的时候，是一个个字符依次转换
+var a = parseInt('8a') // 8
+var b = parseInt('12**') // 12
+var c = parseInt('12.34') // 12
+
+
+// 将字符串转换为浮点数
+var g1 = parseFloat('3.14');  // 3.14
+var g2 = parseFloat('5.5moremore');  // 3.14
+
+
+// 判断一个值是否为NaN
+var a = isNaN(NaN);
+
+
+// 判断一个值是否是正常的数值
+var c = isFinite(NaN);
+
+
+
+// 返回字符串长度
+console.log("Hello".length);
+
+
+
+// 任意值转为 Base64 编码
+console.log(btoa("Hello World"));
+// 非 ASCII 码字符转换，需要进行转码
+console.log(btoa(encodeURIComponent("你好")));
+// Base64 编码转为原来的值
+console.log(atob("SGVsbG8gV29ybGQ="));
+// 非 ASCII 码字符转换，需要进行解码
+console.log(decodeURIComponent(atob("JUU0JUJEJUEwJUU1JUE1JUJE")));
