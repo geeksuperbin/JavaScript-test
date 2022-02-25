@@ -280,6 +280,70 @@ function b64Encode(str) {
 
 
 
+/*
+JavaScrpit 对象 申明和使用
+*/
+
+var obj = {
+    foo: 'Hello',
+    bar: 'World',
+    p:function(x){
+        return 2 * x;
+    },
+    g:{ma:"666"}
+};
+
+console.log(obj); // { foo: 'Hello', bar: 'World', p: [Function: p], g: { ma: '666' } }
+console.log(obj.bar); // World
+console.log(obj.p(2)); // 4 匿名函数
+console.log(obj.g.ma); // 666 链式引用
+
+// 查看一个对象本身的所有属性
+console.log(Object.keys(obj)); // [ 'foo', 'bar', 'p', 'g' ]
+
+// 删除对象属性
+console.log(delete(obj.g)); // true
+console.log(obj); // { foo: 'Hello', bar: 'World', p: [Function: p] }
+
+// in 判断对象属性键名是否存在
+console.log("p" in obj); // true
+console.log("toString" in obj); // true 继承的属性
+console.log(obj.hasOwnProperty("toString")); // false 只查看本对象的属性
+
+
+
+/*
+    for-in 对象遍历
+
+    键名： a
+    键值： 1
+    键名： b
+    键值： 2
+    键名： c
+    键值： 3
+*/
+var obj1 = {a:1, b:2, c:3};
+
+for(var i in obj1){
+    console.log('键名：' , i);
+    console.log('键值：' , obj1[i]);
+}
+
+/*
+with 操作同一个对象的多个属性时，提供一些书写的方便/
+*/
+
+var obj = {
+    p1:1,
+    p2:2
+}
+
+with(obj){
+    console.log(p1); // 1
+    console.log(p2); // 2
+}
+
+
 
 
 
@@ -338,3 +402,15 @@ console.log(btoa(encodeURIComponent("你好")));
 console.log(atob("SGVsbG8gV29ybGQ="));
 // 非 ASCII 码字符转换，需要进行解码
 console.log(decodeURIComponent(atob("JUU0JUJEJUEwJUU1JUE1JUJE")));
+
+
+
+
+
+
+
+
+
+
+
+
