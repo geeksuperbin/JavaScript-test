@@ -660,6 +660,7 @@ var obj = {
 console.log(obj[0]);
 
 // 将类似数组的对象转换为数组
+arrayLike = {'a':1};
 var arr = Array.prototype.slice.call(arrayLike);
 
 // 遍历字符串(类似数组的对象),处理效率比较慢
@@ -696,6 +697,16 @@ console.log(++y); // 2
 
 
 
+
+// 用户点击链接提交表单，但是不产生页面跳转
+/* <a href="javascript:void(document.form.submit())">提交<a/> */
+
+
+// 强制类型转换
+var x = 1;
+Number(x);
+String(x);
+Boolean(x);
 
 
 
