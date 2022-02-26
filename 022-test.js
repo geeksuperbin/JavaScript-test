@@ -28,7 +28,7 @@ var arr3 = ['1','2','3'];
 console.log('1' in arr3); // true
 
 /* 
-  遍历数组
+  for-in 遍历数组
   1
   2
   3
@@ -36,5 +36,51 @@ console.log('1' in arr3); // true
 for(i in arr3){
     console.log(arr3[i]);
 }
-https://wangdoc.com/javascript/types/array.html
+
+/*
+  for 循环数组
+*/
+
+for(var i = 0; i<arr3.length;i++){
+  console.log(arr3[i]);
+}
+
+
+/**
+ * while 循环数组 
+ *
+ */
+var i = 0;
+while(i<arr3.length){
+  console.log(arr3[i]);
+  i++;
+}
+// while 循环逆打印
+var i = arr3.length;
+while(i--){
+  console.log(arr3[i]);
+}
+
+// forEach 遍历数组
+arr3.forEach(function(arr){
+  console.log(arr);
+});
+
+//类似数组的对象
+var obj = {
+  0:'a',
+  1:'b',
+  2:'c',
+  length:3
+};
+
+console.log(obj[0]);
+
+// 将类似数组的对象转换为数组
+var arr = Array.prototype.slice.call(arrayLike);
+
+// 遍历字符串(类似数组的对象),处理效率比较慢
+Array.prototype.forEach.call('abc',function(chr){
+  console.log(chr);
+});
 
